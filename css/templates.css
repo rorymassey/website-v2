@@ -1,0 +1,27 @@
+:root {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --link-color: #6db3f2;
+  --border-color: #333;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* Style your other elements */
+div, section, article, header, footer, h1, h2, h3, p {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+footer {
+  
+    position: absolute;
+    bottom: 0;
+}
