@@ -5,19 +5,38 @@
             Rory Massey
         </title>
         <link rel="stylesheet" href="../css/templates.css">
-    <!--
+
         <style>
-            
-            body {
-                cursor: url('cursor/up-arrow\ \(1\).png'), auto;
+
+
+            img {
+                width: 400px;
+                transition: transform 0.5s ease;
+                cursor: pointer;
+                position: relative;
+            }
+            img.zoomed {
+                transform: scale(3);
+                z-index: 100;
+                transform-origin: center center;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(3);
             }
         </style>
-     
-    -->    
     </head>
 
     <body>
-        <p>
-            put education links and images here
-        </p>
+        <h1>BS of Pastoral Studies</h1>
+        <h2>Maranatha Baptist University</h2>
+        <h2>Achieved 05/15/2020</h2>
+        <br>
+        <h1>Azure Fundamentals</h1>
+        <h2>Achieved 07/26/2025</h2>
+        <img src="../images/azfund.jpg" alt="Image" onclick="this.classList.toggle('zoomed')">
+        <br>
+        <h1>CS50x</h1>
+        <h2>Achieved 06/01/2025</h2>
+        <img src="../images/cs50xcert.jpg" alt="Image" onclick="this.classList.toggle('zoomed')">
     </body>
