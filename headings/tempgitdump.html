@@ -21,18 +21,20 @@ fetch('https://api.github.com/users/rorymassey/repos?sort=created&direction=desc
     //for loop to go through each repo
     repos.forEach(repo => {
     const name = repo.name;
-    const date = repo.created_at;
+    const date = new Date(repo.created_at);
     const description = repo.description;
     const url = repo.html_url;
+    const ndate = date.toLocaleDateString('en-US', {year: 'numeric', month:"numeric", day:"numeric"});
       console.log(repo.html_url);           // Project name
       console.log(repo.created_at);     // Date created
       //container.innerhtml creates a new div for each repo and adds them to the document.
         container.innerHTML += `
         <div class="repo">
           <h3>${name}</h3>
-          <p>Created: ${date}</p>
+          <p>Created: ${ndate}</p>
           <p>Description: ${description}</p>
-          <a href="${url}">View on GitHub</a>
+          <a href="${url}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          
         </div>
         <br>
       `;
