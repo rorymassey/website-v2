@@ -21,9 +21,7 @@
         <h1>
         Projects
         </h1>        
-         <h2>
-        github:rorymassey
-         </h2>
+         
         <div class="text-box">
         <h3>
             Current project: "this webpage"
@@ -60,4 +58,43 @@
             It was a great exercise for putting together database + python + html/js into one app using flask
         </p>
         </div>
+        
+    <body>
+        <h1>GitHub Repositories</h1>
+        <h2>github:rorymassey </h2>
+        <div id="repo-list"></div>
+            </body>
+        <script>
+        // Fetch all your public repos
+        fetch('https://api.github.com/users/rorymassey/repos?sort=created&direction=desc')
+        .then(response => response.json())
+        .then(repos => {
+            // Extract the name and creation date description and URL
+            const container = document.getElementById('repo-list');
+            //for loop to go through each repo
+            repos.forEach(repo => {
+            const name = repo.name;
+            const date = new Date(repo.created_at);
+            const description = repo.description;
+            const url = repo.html_url;
+            const ndate = date.toLocaleDateString('en-US', {year: 'numeric', month:"numeric", day:"numeric"});
+            console.log(repo.html_url);           // Project name
+            console.log(repo.created_at);     // Date created
+            //container.innerhtml creates a new div for each repo and adds them to the document.
+                container.innerHTML += `
+                <div class="text-box">
+                <h3>${name}</h3>
+                <p>Created: ${ndate}</p>
+                <p>Description: ${description}</p>
+                <a href="${url}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                
+                </div>
+                <br>
+            `;
+            });
+        })
+        .catch(error => console.error('Error fetching repos:', error));
+        
+        </script>
+
        </body> 
